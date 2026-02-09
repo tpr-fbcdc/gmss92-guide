@@ -379,6 +379,26 @@ footer {
     margin-top: 2px;
 }
 
+/* Images */
+.figure {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.figure img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.figure figcaption {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #666;
+    font-style: italic;
+}
+
 /* Print Styles */
 @media print {
     body {
