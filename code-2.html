@@ -66,6 +66,10 @@
                 </div>
             </div>
 
+            <div class="alert alert-info">
+                <strong>Identifying Line vs Load:</strong> The switch terminals aren't labeled. The <strong>"line side"</strong> is the terminal that reads ~24VAC to C with the switch <em>open</em>. The other terminal is the "load/return" side.
+            </div>
+
             <div class="result-box fail">
                 <strong>Pre-Inducer reads 24VAC:</strong><br>
                 There is a wiring short or control board logic fault.<br>
@@ -75,6 +79,10 @@
             <div class="result-box pass">
                 <strong>Pre-Inducer reads 0V, then 24V when inducer starts:</strong><br>
                 Normal sequence. Monitor for the 3-minute failure pattern.
+            </div>
+
+            <div class="alert alert-warning">
+                <strong>⚠️ Phantom Voltage:</strong> When the switch is open, you may see a weak 5-15VAC "ghost" reading on the load side. This is induced voltage and is <em>not meaningful</em>. Look for strong ~24VAC on both sides when closed.
             </div>
 
             <h3>Step 3: The 3-Minute Failure Observation</h3>
@@ -93,9 +101,13 @@
             </div>
 
             <div class="result-box fail">
-                <strong>Voltage Stays Solid (24VAC) but board still faults:</strong><br>
-                The board is losing the "proof" signal due to a header pin, connector, or internal logic fault.<br>
-                <em>Perform the "Pro-Pinch" fix or replace control board</em>
+                <strong>24V to C on both terminals continuously, but fault occurs:</strong><br>
+                The switch is proven closed. Investigate wiring from switch to board (PS pin 10, PSO pin 4), harness pin-fit, and board input integrity.<br>
+                <em>Perform the "Pro-Pinch" fix or check board connections</em>
+            </div>
+
+            <div class="alert alert-info">
+                <strong>Pro Tip &mdash; MIN/MAX Capture:</strong> If your multimeter has MIN/MAX capture, enable it during the 3-minute run. This catches momentary dropouts too fast to see on a live reading (common with water slug chatter).
             </div>
         </section>
 
@@ -106,7 +118,8 @@
                 <li>Turn power OFF</li>
                 <li>Use needle-nose pliers to gently squeeze (pinch) the female spade connectors</li>
                 <li>This increases tension for a tighter connection on the switch and board terminals</li>
-                <li>Also wiggle the male spade pins on the control board&mdash;movement indicates a cracked solder joint requiring board replacement</li>
+                <li>Pay special attention to <strong>PS (pin 10)</strong> and <strong>PSO (pin 4)</strong> on the main harness</li>
+                <li>Wiggle the male spade pins on the control board&mdash;movement indicates a cracked solder joint requiring board replacement</li>
             </ul>
         </section>
 

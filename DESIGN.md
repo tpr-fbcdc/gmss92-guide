@@ -19,9 +19,31 @@ This is a comprehensive field service guide for the **Goodman GMSS920402BNAA** f
 | Manifold Pressure | 3.2 - 3.8" WC |
 | Filter Size | 16 × 25 × 1 |
 | Primary Board | Integrated Control Module (Part #0140F02059A) |
-| Pressure Switch | ID Blower Pressure Switch (Part #0130F00641) |
+| Board Fuse | 3A/5A (check if LED is Off/Steady) |
+| ID Blower Pressure Switch | Part #0130F00641 |
+| Front Cover Pressure Switch | Monitors condensate collector box (see Twin Switch note) |
 | Flame Sensor | Part #0130F00010 |
 | Hot Surface Igniter | Part #0130F00008 |
+
+### The "Twin" Pressure Switch Configuration
+
+**Critical Detail:** The schematic shows **two** pressure switches in this system:
+
+1. **ID Blower Pressure Switch** — Monitors inducer vacuum
+2. **Front Cover Pressure Switch** — Monitors the condensate collector box
+
+If the furnace has a 3-flash code but the inducer is pulling a perfect vacuum, the **Front Cover switch** is often the actual culprit. Always verify which switch is faulting before replacement.
+
+### Control Board Pin-Out Reference
+
+For the "Pro-Pinch" fix and harness diagnostics, the pressure switch circuit connects to the Integrated Control Module at:
+
+| Pin | Function |
+|-----|----------|
+| PS (10) | Pressure Switch input |
+| PSO (4) | Pressure Switch output |
+
+Inspect these specific pins for loose fit, corrosion, or cracked solder joints.
 
 ---
 
@@ -51,7 +73,7 @@ gmss92-guide/
 | 2 Flashes | Pressure Switch Stuck CLOSED | Switch fused, wiring short, board fault |
 | 3 Flashes | Pressure Switch Stuck OPEN | Drainage, vacuum port, inducer motor |
 | 4 Flashes | Open High Limit | Airflow restriction, overheating |
-| Off/Steady | System Lockout | Power issue, control board failure |
+| Off/Steady | System Lockout | **Check 3A/5A board fuse first**, then power issue, control board failure |
 
 ---
 
@@ -74,6 +96,7 @@ gmss92-guide/
    - A damaged igniter will glow weakly or unevenly
 
 2. **Clean the Flame Sensor**
+   - ⚠️ **POWER OFF FIRST** — The flame sensor sits near the high-voltage igniter
    - Remove the flame sensor (single screw mount)
    - Clean the metal rod with a light abrasive pad (Scotch-Brite or fine sandpaper)
    - Removes oxidation buildup that prevents accurate flame detection
@@ -126,22 +149,33 @@ gmss92-guide/
 2. Set multimeter to AC Volts
 3. Measure from the **Load Side** of the pressure switch to **Transformer Common (C)**
 
+**Identifying Line vs Load Terminals:**
+The pressure switch terminals are not labeled. To determine which is which:
+> The **"line side"** is the terminal that reads ~24VAC to C with the switch **open**. The other terminal is the **"load/return" side**.
+
 **Results:**
 - **Pre-Inducer reads 24VAC:** Wiring short or control board logic fault → Check for pinched wires or replace control board (Part #0140F02059A)
 - **Pre-Inducer reads 0V, then 24V when inducer starts:** Normal sequence → Monitor for 3-minute failure pattern
+
+**⚠️ Phantom Voltage Warning:**
+When the switch is open, some boards will show a weak "ghost" voltage on the load side to C (often 5–15VAC). This is induced/phantom voltage and is **not meaningful**. The diagnostic result you're looking for is **strong ~24VAC on both sides when the switch is closed**.
 
 #### Step 3: The 3-Minute Failure Observation
 If the unit starts then fails after ~3 minutes, watch the voltage during operation:
 
 - **Voltage Drops (<15VAC):** Switch is physically opening or "chattering" due to pneumatic turbulence (water slugs in drain) → See Branch 3 drainage remediation
-- **Voltage Stays Solid (24VAC) but board still faults:** Board is losing the "proof" signal due to header pin, connector, or internal logic fault → Perform "Pro-Pinch" fix or replace control board
+- **24V to C on both switch terminals continuously, but fault occurs:** The switch is proven closed; investigate wiring from switch to board (PS pin 10, PSO pin 4), harness pin-fit, and board input integrity
+
+**Pro Tip — MIN/MAX Capture:**
+If your multimeter supports MIN/MAX capture, enable it during the 3-minute run cycle. This will detect momentary voltage dropouts that occur too fast to see on a live reading (common with water slug-induced chatter).
 
 **The "Pro-Pinch" Fix:**
 Vibration can loosen spade connectors over time, causing micro-breaks in the circuit.
 1. Turn power OFF
 2. Use needle-nose pliers to gently squeeze (pinch) the female spade connectors
 3. This increases tension for a tighter connection
-4. Wiggle the male spade pins on the control board—movement indicates a cracked solder joint requiring board replacement
+4. Pay special attention to the **PS (pin 10)** and **PSO (pin 4)** connections on the main harness
+5. Wiggle the male spade pins on the control board—movement indicates a cracked solder joint requiring board replacement
 
 **Why a Clogged Drain Causes 2-Flash:**
 While 2-flash technically means "stuck closed," a fluctuating vacuum caused by backed-up water can make the switch "chatter." Rapid signal interruptions can be misinterpreted by the board as a logic mismatch or a "stuck" condition during a cycle reset.
@@ -151,6 +185,8 @@ While 2-flash technically means "stuck closed," a fluctuating vacuum caused by b
 ### 3-Flash: Pressure Switch Stuck OPEN
 
 **Technical Summary:** The inducer motor is running, but the vacuum is insufficient to close the pressure switch circuit. This is common in 92% high-efficiency furnaces due to condensate management issues.
+
+**⚠️ Twin Switch Alert:** This unit has **two** pressure switches. If the inducer is pulling perfect vacuum but you still have a 3-flash code, check the **Front Cover Pressure Switch** (monitors the condensate collector box)—it's often the actual culprit, not the ID Blower switch.
 
 **92% Efficiency Factor:** High-efficiency furnaces produce significant condensate. If drainage is impaired, water backs up into the inducer housing, disrupting the vacuum signal.
 
@@ -337,10 +373,12 @@ If airflow is adequate and limit still trips, the furnace may be overfiring (too
 | Part | Part Number |
 |------|-------------|
 | ID Blower Pressure Switch | 0130F00641 |
+| Front Cover Pressure Switch | (model specific — monitors condensate collector) |
 | Pressure Switch Hose | (universal) |
 | Inducer Motor Assembly | (model specific) |
 | Condensate Trap | (model specific) |
 | Integrated Control Module | 0140F02059A |
+| Board Fuse | 3A or 5A (check existing) |
 
 #### 4-Flash Parts
 | Part | Part Number |
@@ -382,11 +420,19 @@ If airflow is adequate and limit still trips, the furnace may be overfiring (too
 
 3. **92% Efficiency Condensate Factor:** High-efficiency furnaces extract more heat, creating more condensate. Drainage issues are proportionally more common than in 80% efficiency units.
 
-4. **Voltage Sequencing Logic:**
-   - Pressure switch circuit should read 0V before inducer starts
-   - Should read 24V-28VAC after inducer reaches speed
+4. **Twin Switch Trap:** This unit has TWO pressure switches (ID Blower and Front Cover). A 3-flash with good inducer vacuum often means the Front Cover switch (condensate collector box) is the culprit—not the ID Blower switch.
+
+5. **Voltage Sequencing Logic:**
+   - Pressure switch circuit should read 0V on load side before inducer starts
+   - Should read 24V-28VAC on both sides after inducer reaches speed and switch closes
    - Voltage drop during operation indicates switch opening (chatter)
-   - Solid voltage with board fault indicates board/connector issue
+   - Solid 24V on both terminals with board fault = investigate wiring to board, not the switch itself
+
+6. **Phantom Voltage Awareness:** Open switches can show 5-15VAC "ghost" readings due to induced voltage. Only strong ~24VAC readings are meaningful for diagnosis.
+
+7. **Board Fuse First:** If LED shows Off/Steady (System Lockout), check the 3A/5A fuse on the control board before condemning the board.
+
+8. **MIN/MAX Capture Technique:** Water slug dropouts happen too fast for live meter readings. Use MIN/MAX capture during the 3-minute observation to catch momentary interruptions.
 
 ### Expansion Opportunities
 
@@ -404,6 +450,7 @@ If airflow is adequate and limit still trips, the furnace may be overfiring (too
 | Date | Change |
 |------|--------|
 | 2025-02 | Initial creation with complete diagnostic content |
+| 2025-02 | Added: Twin switch configuration (ID Blower + Front Cover), control board pin-out (PS-10, PSO-4), 3A/5A fuse check for Off/Steady, phantom voltage warning, line/load identification method, MIN/MAX capture technique, safety warning for flame sensor work |
 
 ---
 
