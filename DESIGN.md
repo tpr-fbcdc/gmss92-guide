@@ -52,6 +52,7 @@ Inspect these specific pins for loose fit, corrosion, or cracked solder joints.
 ```
 gmss92-guide/
 ├── index.html          # Home - diagnostic command center & flash code table
+├── thermostat.html     # Thermostat troubleshooting (Phase 0 - before flash codes)
 ├── code-1.html         # 1-Flash: Ignition/Flame failure
 ├── code-2.html         # 2-Flash: Pressure Switch Stuck CLOSED
 ├── code-3.html         # 3-Flash: Pressure Switch Stuck OPEN
@@ -74,6 +75,98 @@ gmss92-guide/
 | 3 Flashes | Pressure Switch Stuck OPEN | Drainage, vacuum port, inducer motor |
 | 4 Flashes | Open High Limit | Airflow restriction, overheating |
 | Off/Steady | System Lockout | **Check 3A/5A board fuse first**, then power issue, control board failure |
+
+---
+
+## Phase 0: Thermostat Troubleshooting
+
+Many "furnace not working" calls are actually thermostat or wiring issues. Before diving into flash codes and pressure switches, rule out the simple stuff first.
+
+### Basic Thermostat Checks
+
+1. **Check the Mode** — Ensure set to HEAT (not COOL, OFF, or AUTO)
+2. **Check the Setpoint** — Set 5°F above current room temperature
+3. **Check the Batteries** — Dead batteries = no call for heat, even if display looks fine
+4. **Check the Fan Setting** — Set to AUTO for normal operation
+5. **Check the Schedule** — Programmable thermostats may have setback periods active
+
+### The R-to-W Jumper Test
+
+This is the **#1 field diagnostic** for "is it the thermostat or the furnace?"
+
+**Procedure:**
+1. Locate thermostat terminals on control board (R, W, G, C)
+2. Turn power OFF
+3. Use a jumper wire to connect **R terminal to W terminal** (simulates heat call)
+4. Turn power ON and observe
+
+**Results:**
+- **Furnace fires:** The furnace is working. Problem is thermostat, thermostat wiring, or thermostat settings.
+- **Furnace does NOT fire:** Problem is inside the furnace. Check diagnostic LED for flash codes.
+
+**Important:** Remove the jumper after testing! Leaving it in place means continuous furnace operation with no temperature control.
+
+### 24VAC Verification
+
+If R-to-W test doesn't fire the furnace, verify control board is outputting 24VAC:
+
+1. Set meter to AC Volts
+2. Measure voltage between **R terminal** and **C terminal** (or chassis ground)
+
+**Results:**
+- **24-28VAC present:** Transformer working. Problem is downstream (wiring or thermostat).
+- **0V or low voltage:** Check **3A/5A fuse** on control board first, then transformer.
+
+### Thermostat Wire Reference
+
+| Terminal | Color | Function |
+|----------|-------|----------|
+| R | Red | 24VAC power (from transformer) |
+| W | White | Heat call (closes R-W to call for heat) |
+| G | Green | Fan (blower motor) |
+| Y | Yellow | Cooling (A/C compressor) — not used for heat-only |
+| C | Blue | Common (24VAC return — needed for smart thermostats) |
+
+**Note:** Wire colors are not universal. Always verify by tracing wires or checking labels at both ends.
+
+### Smart Thermostat Issues
+
+**The "C Wire" Problem:**
+
+Smart thermostats (Nest, Ecobee, Honeywell Home) need continuous 24VAC power via the C (common) wire. Many older installations only have R, W, G, Y — no C wire.
+
+**Symptoms:** Thermostat loses power, display goes blank, furnace short-cycles, or "power stealing" causes erratic behavior.
+
+**Solutions:**
+- Run a new C wire from furnace to thermostat (best solution)
+- Use an "Add-a-Wire" kit that repurposes an existing wire
+- Install a C-wire adapter/power extender kit at the furnace
+
+**Compatibility Settings:**
+- System type: Conventional (not heat pump)
+- Stages: Single-stage heating
+- Fan control: Gas/oil furnace (not electric)
+
+### Thermostat Location Issues
+
+| Problem Location | Symptom |
+|------------------|---------|
+| Near exterior door or window | Furnace runs too much (drafts fool sensor) |
+| In direct sunlight | Furnace doesn't run enough (sun warms sensor) |
+| Near heat source (lamp, TV, appliance) | Furnace doesn't run enough |
+| On exterior wall | Reads colder than actual room temp |
+| Near supply register | Short cycling — satisfies too quickly |
+| In hallway (no return air) | Poor temperature representation |
+
+### Common Thermostat Failures
+
+| Symptom | First Check | Then Check |
+|---------|-------------|------------|
+| No display | Batteries | 24VAC at furnace R terminal |
+| Display works, no heat | Mode, setpoint, schedule | R-to-W jumper test |
+| Furnace short-cycles | Thermostat location | Anticipator or C-wire |
+| Smart thermostat loses power | C-wire connection | Transformer voltage under load |
+| House never reaches setpoint | Thermostat location | Actual furnace output |
 
 ---
 
@@ -451,6 +544,7 @@ If airflow is adequate and limit still trips, the furnace may be overfiring (too
 |------|--------|
 | 2025-02 | Initial creation with complete diagnostic content |
 | 2025-02 | Added: Twin switch configuration (ID Blower + Front Cover), control board pin-out (PS-10, PSO-4), 3A/5A fuse check for Off/Steady, phantom voltage warning, line/load identification method, MIN/MAX capture technique, safety warning for flame sensor work |
+| 2025-02 | Added: Thermostat troubleshooting page (Phase 0) — R-to-W jumper test, 24VAC verification, wire reference, smart thermostat C-wire issues, location problems |
 
 ---
 

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thermostat Troubleshooting - Goodman GMSS92</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Thermostat Troubleshooting</h1>
+        <p>Before You Blame the Furnace</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="thermostat.html" class="active">Thermostat</a></li>
+            <li><a href="code-1.html">1-Flash</a></li>
+            <li><a href="code-2.html">2-Flash</a></li>
+            <li><a href="code-3.html">3-Flash</a></li>
+            <li><a href="code-4.html">4-Flash</a></li>
+            <li><a href="maintenance.html">Maintenance</a></li>
+            <li><a href="parts.html">Parts</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="card">
+            <h2>Why Start Here?</h2>
+            <p>Many "furnace not working" calls are actually <strong>thermostat or wiring issues</strong>. Before diving into flash codes and pressure switches, rule out the simple stuff first.</p>
+
+            <div class="alert alert-info">
+                <strong>Key Question:</strong> Is the thermostat actually calling for heat? If not, the furnace won't do anything — and that's not a furnace problem.
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Phase 0: Basic Thermostat Checks</h2>
+
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>Check the Mode</h4>
+                    <p>Ensure the thermostat is set to <strong>HEAT</strong> (not COOL, OFF, or AUTO). This sounds obvious but catches people every fall.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>Check the Setpoint</h4>
+                    <p>Set the temperature <strong>5°F above the current room temperature</strong>. The thermostat won't call for heat if the room is already at or above the setpoint.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4>Check the Batteries</h4>
+                    <p>Many thermostats run on AA or AAA batteries. Dead batteries = no call for heat, even if the display looks fine. Replace batteries annually.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h4>Check the Fan Setting</h4>
+                    <p>Set fan to <strong>AUTO</strong> for normal operation. If set to ON, the blower runs continuously regardless of heat call — which can make the house feel cold even when the furnace is fine.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <h4>Check the Schedule</h4>
+                    <p>Programmable thermostats may have schedules that override manual settings. Check if a "setback" period is active or if the schedule was accidentally changed.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>The R-to-W Jumper Test</h2>
+            <p>This is the <strong>#1 field diagnostic</strong> for determining "is it the thermostat or the furnace?"</p>
+
+            <div class="alert alert-warning">
+                <strong>⚠️ Safety:</strong> This test involves working with low-voltage (24VAC) wiring. Turn off furnace power before touching wires. If unsure, call a professional.
+            </div>
+
+            <h3>At the Furnace Control Board:</h3>
+
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>Locate the Thermostat Terminals</h4>
+                    <p>Find the terminal strip on the control board where thermostat wires connect. Look for terminals labeled <strong>R</strong> (power), <strong>W</strong> (heat), <strong>G</strong> (fan), <strong>C</strong> (common).</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>Turn Power OFF</h4>
+                    <p>Switch off the furnace at the service switch or breaker.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4>Jumper R to W</h4>
+                    <p>Use a small piece of insulated wire or a jumper to connect the <strong>R terminal to the W terminal</strong>. This simulates the thermostat calling for heat.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h4>Turn Power ON</h4>
+                    <p>Restore power and observe the furnace.</p>
+                </div>
+            </div>
+
+            <div class="result-box pass">
+                <strong>Furnace Fires:</strong><br>
+                The furnace is working. The problem is the <strong>thermostat, thermostat wiring, or thermostat settings</strong>.<br>
+                <em>Next: Check wiring continuity from furnace to thermostat, or replace thermostat.</em>
+            </div>
+
+            <div class="result-box fail">
+                <strong>Furnace Does NOT Fire:</strong><br>
+                The problem is <strong>inside the furnace</strong>. Check the diagnostic LED for flash codes.<br>
+                <em>Next: Go to <a href="index.html">Flash Code Diagnosis</a></em>
+            </div>
+
+            <div class="alert alert-danger">
+                <strong>Important:</strong> Remove the jumper after testing! Leaving it in place means the furnace will run continuously with no temperature control.
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>24VAC Verification</h2>
+            <p>If the R-to-W test doesn't fire the furnace, verify the control board is outputting 24VAC to the thermostat circuit.</p>
+
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>Set Meter to AC Volts</h4>
+                    <p>Use a multimeter set to AC voltage.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>Measure R to C</h4>
+                    <p>With power on, measure voltage between the <strong>R terminal</strong> and <strong>C terminal</strong> (or furnace chassis ground).</p>
+                </div>
+            </div>
+
+            <div class="result-box pass">
+                <strong>24-28VAC Present:</strong><br>
+                The transformer is working. Problem is downstream (wiring or thermostat).
+            </div>
+
+            <div class="result-box fail">
+                <strong>0V or Low Voltage:</strong><br>
+                The 24V transformer may be failed, or the <strong>3A/5A fuse</strong> on the control board is blown.<br>
+                <em>Check fuse first before replacing transformer.</em>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Thermostat Wire Reference</h2>
+            <p>Standard wire colors and functions for single-stage furnaces:</p>
+
+            <table class="flash-table">
+                <thead>
+                    <tr>
+                        <th>Terminal</th>
+                        <th>Color</th>
+                        <th>Function</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>R</strong></td>
+                        <td>Red</td>
+                        <td>24VAC power (from transformer)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>W</strong></td>
+                        <td>White</td>
+                        <td>Heat call (closes R-W to call for heat)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>G</strong></td>
+                        <td>Green</td>
+                        <td>Fan (blower motor)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Y</strong></td>
+                        <td>Yellow</td>
+                        <td>Cooling (A/C compressor) — not used for heat-only</td>
+                    </tr>
+                    <tr>
+                        <td><strong>C</strong></td>
+                        <td>Blue</td>
+                        <td>Common (24VAC return — needed for smart thermostats)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="alert alert-warning">
+                <strong>Note:</strong> Wire colors are not universal! Always verify by tracing wires or checking labels at both ends. The GMSS92 is a single-stage furnace — only R, W, G, and C are typically used for heating.
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Smart Thermostat Issues</h2>
+            <p>Modern smart thermostats (Nest, Ecobee, Honeywell Home) can cause issues with older furnaces:</p>
+
+            <h3>The "C Wire" Problem</h3>
+            <div class="result-box fail">
+                <strong>Symptoms:</strong> Thermostat loses power, display goes blank, furnace short-cycles, or thermostat "power steals" and causes erratic behavior.<br><br>
+                <strong>Cause:</strong> Smart thermostats need continuous 24VAC power via the C (common) wire. Many older thermostat installations only have R, W, G, Y — no C wire.<br><br>
+                <strong>Solutions:</strong>
+                <ul style="margin-top: 10px;">
+                    <li>Run a new C wire from furnace to thermostat (best solution)</li>
+                    <li>Use an "Add-a-Wire" kit that repurposes an existing wire</li>
+                    <li>Install a C-wire adapter/power extender kit at the furnace</li>
+                    <li>Some thermostats can "power steal" from R — but this causes issues with some furnaces</li>
+                </ul>
+            </div>
+
+            <h3>Compatibility Mode</h3>
+            <p>Ensure the smart thermostat is configured for:</p>
+            <ul>
+                <li><strong>System type:</strong> Conventional (not heat pump)</li>
+                <li><strong>Stages:</strong> Single-stage heating</li>
+                <li><strong>Fan control:</strong> Gas/oil furnace (not electric)</li>
+            </ul>
+
+            <h3>Wi-Fi Thermostat Power Cycling</h3>
+            <p>If the thermostat randomly restarts or loses Wi-Fi, it may be drawing too much current. Check for:</p>
+            <ul>
+                <li>Missing or improper C wire connection</li>
+                <li>Weak transformer (should output 24-28VAC under load)</li>
+                <li>Too many devices on the 24VAC circuit</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2>Thermostat Location Issues</h2>
+            <p>A poorly located thermostat can cause comfort problems that seem like furnace issues:</p>
+
+            <table class="flash-table">
+                <thead>
+                    <tr>
+                        <th>Problem Location</th>
+                        <th>Symptom</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Near exterior door or window</td>
+                        <td>Furnace runs too much (drafts fool the sensor)</td>
+                    </tr>
+                    <tr>
+                        <td>In direct sunlight</td>
+                        <td>Furnace doesn't run enough (sun warms sensor)</td>
+                    </tr>
+                    <tr>
+                        <td>Near heat source (lamp, TV, appliance)</td>
+                        <td>Furnace doesn't run enough</td>
+                    </tr>
+                    <tr>
+                        <td>On exterior wall</td>
+                        <td>Reads colder than actual room temp</td>
+                    </tr>
+                    <tr>
+                        <td>Near supply register</td>
+                        <td>Short cycling — satisfies too quickly</td>
+                    </tr>
+                    <tr>
+                        <td>In hallway (no return air)</td>
+                        <td>Poor temperature representation of living spaces</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="card">
+            <h2>Common Thermostat Failures</h2>
+
+            <div class="result-box fail">
+                <strong>Dead Display</strong><br>
+                Replace batteries. If battery-powered and still dead, check for 24VAC at R terminal. No voltage = transformer or fuse issue at furnace.
+            </div>
+
+            <div class="result-box fail">
+                <strong>Display Works But No Heat Call</strong><br>
+                Internal relay failure. Try the R-to-W jumper test at the furnace. If furnace fires, replace thermostat.
+            </div>
+
+            <div class="result-box fail">
+                <strong>Erratic Behavior / Ghost Calls</strong><br>
+                Dirty contacts, failing electronics, or EMI interference. Try cleaning contacts with electronics cleaner. If problem persists, replace thermostat.
+            </div>
+
+            <div class="result-box fail">
+                <strong>Temperature Reading Wrong</strong><br>
+                Sensor failure or poor location. Compare to a known-accurate thermometer. If off by more than 2-3°F, recalibrate (if possible) or replace.
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Quick Diagnostic Flowchart</h2>
+            <table class="flash-table">
+                <thead>
+                    <tr>
+                        <th>Symptom</th>
+                        <th>First Check</th>
+                        <th>Then Check</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>No display on thermostat</td>
+                        <td>Batteries</td>
+                        <td>24VAC at furnace R terminal</td>
+                    </tr>
+                    <tr>
+                        <td>Display works, no heat</td>
+                        <td>Mode, setpoint, schedule</td>
+                        <td>R-to-W jumper test</td>
+                    </tr>
+                    <tr>
+                        <td>Furnace short-cycles</td>
+                        <td>Thermostat location</td>
+                        <td>Anticipator setting or C-wire</td>
+                    </tr>
+                    <tr>
+                        <td>Smart thermostat loses power</td>
+                        <td>C-wire connection</td>
+                        <td>Transformer voltage under load</td>
+                    </tr>
+                    <tr>
+                        <td>House never reaches setpoint</td>
+                        <td>Thermostat location (sun, drafts)</td>
+                        <td>Actual furnace output</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <a href="index.html" class="back-link">&larr; Back to Diagnostic Home</a>
+    </main>
+
+    <footer>
+        <p>Goodman GMSS92 Field Service Guide</p>
+    </footer>
+</body>
+</html>
