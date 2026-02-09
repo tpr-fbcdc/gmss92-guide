@@ -60,8 +60,42 @@ gmss92-guide/
 ├── maintenance.html    # Pre-season checklist & service log
 ├── parts.html          # Parts reference with part numbers
 ├── style.css           # Mobile-first responsive styling
-└── DESIGN.md           # This document
+├── DESIGN.md           # This document
+└── images/
+    ├── control-board-annotated.jpg      # LED + thermostat terminals
+    ├── flame-sensor-pressure-switches.jpg   # Flame sensor + pressure switches
+    └── condensate-trap-filter.jpg       # Condensate trap + filter + door switch
 ```
+
+---
+
+## Image Reference
+
+Annotated photos from the actual GMSS920402BNAA unit for field reference.
+
+### control-board-annotated.jpg (982KB)
+**Shows:** Control board with two callouts
+- Left circle: Diagnostic LED location for flash codes
+- Right circle: Thermostat terminals (R, W, G, C) for R-to-W jumper test and 24VAC verification
+
+**Used on:** index.html, thermostat.html
+
+### flame-sensor-pressure-switches.jpg (909KB)
+**Shows:** Burner compartment interior
+- Flame sensor location (top right, single screw mount)
+- Pressure switches on inducer motor housing (confirms twin switch configuration)
+- Gas valve visible on left
+- Inducer motor (large black circular component)
+
+**Used on:** code-1.html, code-2.html, code-3.html
+
+### condensate-trap-filter.jpg (887KB)
+**Shows:** Blower compartment view
+- Condensate trap (white plastic, top right) — flush with vinegar
+- Door/panel interlock switch (top left) — safety switch
+- 16×25×1 filter (bottom) — matches documented spec
+
+**Used on:** code-3.html, code-4.html, maintenance.html
 
 ---
 
@@ -545,6 +579,7 @@ If airflow is adequate and limit still trips, the furnace may be overfiring (too
 | 2025-02 | Initial creation with complete diagnostic content |
 | 2025-02 | Added: Twin switch configuration (ID Blower + Front Cover), control board pin-out (PS-10, PSO-4), 3A/5A fuse check for Off/Steady, phantom voltage warning, line/load identification method, MIN/MAX capture technique, safety warning for flame sensor work |
 | 2025-02 | Added: Thermostat troubleshooting page (Phase 0) — R-to-W jumper test, 24VAC verification, wire reference, smart thermostat C-wire issues, location problems |
+| 2025-02 | Added: 3 annotated photos from actual unit — control board LED/terminals, flame sensor/pressure switches, condensate trap/filter |
 
 ---
 
