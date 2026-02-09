@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2-Flash: Pressure Switch Stuck Closed - Goodman GMSS92</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Code 2: Pressure Switch Stuck Closed</h1>
+        <p>Locked Circuit Diagnosis</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="code-1.html">1-Flash</a></li>
+            <li><a href="code-2.html" class="active">2-Flash</a></li>
+            <li><a href="code-3.html">3-Flash</a></li>
+            <li><a href="code-4.html">4-Flash</a></li>
+            <li><a href="maintenance.html">Maintenance</a></li>
+            <li><a href="parts.html">Parts</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="card">
+            <h2>Technical Summary</h2>
+            <p>The 2-Flash code indicates the control board detects a <strong>completed circuit on the pressure switch before the inducer motor starts</strong>. The board expects the switch to be OPEN at rest.</p>
+
+            <div class="alert alert-info">
+                <strong>Core Logic:</strong> If 24VAC is present on the pressure circuit before the inducer runs, the board sees this as a "stuck closed" condition and will not proceed with ignition.
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Diagnostic Steps</h2>
+
+            <h3>Step 1: Static Resistance Test (Power OFF)</h3>
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>Disconnect & Measure</h4>
+                    <p>Turn power OFF. Remove wires from the pressure switch terminals. Set multimeter to Ohms (&Omega;) and measure across the switch terminals.</p>
+                </div>
+            </div>
+
+            <div class="result-box fail">
+                <strong>Result: 0&Omega; (Continuity/Beep)</strong><br>
+                The switch is mechanically fused closed.<br>
+                <em>Remediation: Replace Pressure Switch (Part #0130F00641)</em>
+            </div>
+
+            <div class="result-box pass">
+                <strong>Result: OL/Infinite (No Continuity)</strong><br>
+                The switch is electrically normal at rest. Proceed to Step 2.
+            </div>
+
+            <h3>Step 2: Live Voltage Sequencing (Power ON)</h3>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>Measure Voltage to Common (C)</h4>
+                    <p>Reconnect wires. Set multimeter to AC Volts. Measure from the <strong>Load Side</strong> of the pressure switch to <strong>Transformer Common (C)</strong>.</p>
+                </div>
+            </div>
+
+            <div class="result-box fail">
+                <strong>Pre-Inducer reads 24VAC:</strong><br>
+                There is a wiring short or control board logic fault.<br>
+                <em>Check for pinched wires or replace control board (Part #0140F02059A)</em>
+            </div>
+
+            <div class="result-box pass">
+                <strong>Pre-Inducer reads 0V, then 24V when inducer starts:</strong><br>
+                Normal sequence. Monitor for the 3-minute failure pattern.
+            </div>
+
+            <h3>Step 3: The 3-Minute Failure Observation</h3>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4>Monitor During Run Cycle</h4>
+                    <p>If the unit starts then fails after ~3 minutes, watch the voltage during operation.</p>
+                </div>
+            </div>
+
+            <div class="result-box fail">
+                <strong>Voltage Drops (&lt;15VAC):</strong><br>
+                The switch is physically opening or "chattering" due to pneumatic turbulence (water slugs in the drain).<br>
+                <em>See: <a href="code-3.html">Branch 3 - Drainage Remediation</a></em>
+            </div>
+
+            <div class="result-box fail">
+                <strong>Voltage Stays Solid (24VAC) but board still faults:</strong><br>
+                The board is losing the "proof" signal due to a header pin, connector, or internal logic fault.<br>
+                <em>Perform the "Pro-Pinch" fix or replace control board</em>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>The "Pro-Pinch" Fix</h2>
+            <p>Vibration can loosen spade connectors over time, causing micro-breaks in the circuit that the board interprets as a logic error.</p>
+            <ul>
+                <li>Turn power OFF</li>
+                <li>Use needle-nose pliers to gently squeeze (pinch) the female spade connectors</li>
+                <li>This increases tension for a tighter connection on the switch and board terminals</li>
+                <li>Also wiggle the male spade pins on the control board&mdash;movement indicates a cracked solder joint requiring board replacement</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2>Why a Clogged Drain Causes 2-Flash</h2>
+            <div class="alert alert-warning">
+                While 2-flash technically means "stuck closed," a <strong>fluctuating vacuum</strong> caused by backed-up water can make the switch "chatter." Rapid signal interruptions can be misinterpreted by the board as a logic mismatch or a "stuck" condition during a cycle reset.
+            </div>
+            <p>If you suspect drainage issues, also review <a href="code-3.html">Branch 3: Stuck Open / Drainage</a>.</p>
+        </section>
+
+        <section class="card">
+            <h2>Parts Required</h2>
+            <table class="parts-table">
+                <thead>
+                    <tr>
+                        <th>Part</th>
+                        <th>Part Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ID Blower Pressure Switch</td>
+                        <td><span class="part-number">0130F00641</span></td>
+                    </tr>
+                    <tr>
+                        <td>Integrated Control Module</td>
+                        <td><span class="part-number">0140F02059A</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <a href="index.html" class="back-link">&larr; Back to Diagnostic Home</a>
+    </main>
+
+    <footer>
+        <p>Goodman GMSS92 Field Service Guide</p>
+    </footer>
+</body>
+</html>

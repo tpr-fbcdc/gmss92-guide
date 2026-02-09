@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1-Flash: Ignition Failure - Goodman GMSS92</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Code 1: Ignition/Flame Failure</h1>
+        <p>Flame Sense Circuit Diagnosis</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="code-1.html" class="active">1-Flash</a></li>
+            <li><a href="code-2.html">2-Flash</a></li>
+            <li><a href="code-3.html">3-Flash</a></li>
+            <li><a href="code-4.html">4-Flash</a></li>
+            <li><a href="maintenance.html">Maintenance</a></li>
+            <li><a href="parts.html">Parts</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="card">
+            <h2>Technical Summary</h2>
+            <p>The 1-Flash code indicates the control board is not detecting a flame signal. This typically means the furnace attempts to ignite but the flame dies within 2-5 seconds, or no ignition occurs at all.</p>
+
+            <div class="alert alert-warning">
+                <strong>Safety First:</strong> If you smell gas, turn off the gas supply immediately and ventilate the area before proceeding.
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Symptoms</h2>
+            <ul>
+                <li>Furnace lights for 2-5 seconds, then flame dies</li>
+                <li>Igniter glows but no flame appears</li>
+                <li>Repeated ignition attempts followed by lockout</li>
+                <li>Gas odor during failed ignition cycles</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2>Diagnostic Steps</h2>
+
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>Inspect the Hot Surface Igniter</h4>
+                    <p>Check the igniter for visible cracks, white "hot spots," or thinning. A damaged igniter will glow weakly or unevenly.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>Clean the Flame Sensor</h4>
+                    <p>Remove the flame sensor (single screw mount). Clean the metal rod with a light abrasive pad (Scotch-Brite or fine sandpaper) to remove oxidation buildup.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4>Check Flame Sensor Microamp Reading</h4>
+                    <p>With the furnace running, measure DC microamps between the flame sensor wire and ground. Normal reading: 1.5-6 microamps. Below 1 microamp indicates a dirty or failing sensor.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h4>Verify Gas Pressure</h4>
+                    <p>Check manifold gas pressure at the test port. Should be 3.2-3.8" WC for natural gas. Low pressure prevents proper flame establishment.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <h4>Inspect Ground Connection</h4>
+                    <p>Ensure the furnace has a proper ground. A poor ground can cause erratic flame sensing. Check the ground wire from the control board to the furnace cabinet.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Common Causes & Remediation</h2>
+
+            <div class="result-box fail">
+                <strong>Dirty Flame Sensor (Most Common)</strong><br>
+                Oxidation on the sensor rod prevents accurate flame detection.<br>
+                <em>Fix: Clean with abrasive pad or replace sensor (Part #0130F00010)</em>
+            </div>
+
+            <div class="result-box fail">
+                <strong>Cracked or Weak Igniter</strong><br>
+                Igniter doesn't reach proper temperature to ignite gas.<br>
+                <em>Fix: Replace Hot Surface Igniter</em>
+            </div>
+
+            <div class="result-box fail">
+                <strong>Low Gas Pressure</strong><br>
+                Insufficient pressure for stable flame.<br>
+                <em>Fix: Check gas valve, regulator, and supply line</em>
+            </div>
+
+            <div class="result-box fail">
+                <strong>Poor Grounding</strong><br>
+                Flame sensing circuit requires proper ground reference.<br>
+                <em>Fix: Clean and tighten ground connections</em>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Parts Required</h2>
+            <table class="parts-table">
+                <thead>
+                    <tr>
+                        <th>Part</th>
+                        <th>Part Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Flame Sensor</td>
+                        <td><span class="part-number">0130F00010</span></td>
+                    </tr>
+                    <tr>
+                        <td>Hot Surface Igniter</td>
+                        <td><span class="part-number">0130F00008</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <a href="index.html" class="back-link">&larr; Back to Diagnostic Home</a>
+    </main>
+
+    <footer>
+        <p>Goodman GMSS92 Field Service Guide</p>
+    </footer>
+</body>
+</html>

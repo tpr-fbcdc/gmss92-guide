@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goodman GMSS92 Troubleshooting Guide</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Goodman GMSS92 Diagnostic Portal</h1>
+        <p>Professional Troubleshooting & Repair Guide</p>
+        <span class="model-tag">Model: GMSS920402BNAA</span>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="code-1.html">1-Flash</a></li>
+            <li><a href="code-2.html">2-Flash</a></li>
+            <li><a href="code-3.html">3-Flash</a></li>
+            <li><a href="code-4.html">4-Flash</a></li>
+            <li><a href="maintenance.html">Maintenance</a></li>
+            <li><a href="parts.html">Parts</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="card">
+            <h2>Phase 1: The Essentials</h2>
+            <p>Before diagnosing flash codes, verify these basics:</p>
+            <ul>
+                <li><strong>Power:</strong> Check the service switch (on furnace) and main breaker panel.</li>
+                <li><strong>Gas:</strong> Ensure external and internal gas valves are set to ON.</li>
+                <li><strong>Thermostat:</strong> Set to HEAT mode, 5&deg; above current room temperature.</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2>Phase 2: Flash Code Identification</h2>
+            <p>Look through the sight glass at the diagnostic LED on the Integrated Control Module. What is the LED doing?</p>
+
+            <table class="flash-table">
+                <thead>
+                    <tr>
+                        <th>LED Status</th>
+                        <th>Meaning</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Steady ON</strong></td>
+                        <td>Normal Operation</td>
+                        <td>Check thermostat wiring</td>
+                    </tr>
+                    <tr>
+                        <td><strong>1 Flash</strong></td>
+                        <td>Ignition/Flame Failure</td>
+                        <td><a href="code-1.html">Go to Branch 1</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>2 Flashes</strong></td>
+                        <td>Pressure Switch Stuck CLOSED</td>
+                        <td><a href="code-2.html">Go to Branch 2</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>3 Flashes</strong></td>
+                        <td>Pressure Switch Stuck OPEN</td>
+                        <td><a href="code-3.html">Go to Branch 3</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>4 Flashes</strong></td>
+                        <td>Open High Limit (Overheating)</td>
+                        <td><a href="code-4.html">Go to Branch 4</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Off/Steady</strong></td>
+                        <td>System Lockout</td>
+                        <td>Reset power or check control board</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="card">
+            <h2>Quick Navigation</h2>
+            <p>Select your flash code to begin diagnosis:</p>
+            <div class="button-grid">
+                <a href="code-1.html" class="btn">1 Flash &mdash; Ignition Failure</a>
+                <a href="code-2.html" class="btn">2 Flashes &mdash; Stuck Closed</a>
+                <a href="code-3.html" class="btn">3 Flashes &mdash; Stuck Open</a>
+                <a href="code-4.html" class="btn">4 Flashes &mdash; Overheating</a>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>System Specifications</h2>
+            <ul>
+                <li><strong>Model:</strong> Goodman GMSS920402BNAA (92% High-Efficiency Single Stage)</li>
+                <li><strong>Primary Board:</strong> Integrated Control Module (Part #0140F02059A)</li>
+                <li><strong>Pressure Switch:</strong> ID Blower Pressure Switch (Part #0130F00641)</li>
+                <li><strong>Flame Sensor:</strong> Part #0130F00010</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>Goodman GMSS92 Field Service Guide | <a href="maintenance.html">Maintenance Schedule</a> | <a href="parts.html">Parts Reference</a></p>
+    </footer>
+</body>
+</html>

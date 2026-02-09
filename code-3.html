@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3-Flash: Pressure Switch Stuck Open - Goodman GMSS92</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Code 3: Pressure Switch Stuck Open</h1>
+        <p>Pneumatic & Drainage Diagnosis</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="code-1.html">1-Flash</a></li>
+            <li><a href="code-2.html">2-Flash</a></li>
+            <li><a href="code-3.html" class="active">3-Flash</a></li>
+            <li><a href="code-4.html">4-Flash</a></li>
+            <li><a href="maintenance.html">Maintenance</a></li>
+            <li><a href="parts.html">Parts</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="card">
+            <h2>Technical Summary</h2>
+            <p>The 3-Flash code indicates the <strong>inducer motor is running, but the vacuum is insufficient to close the pressure switch circuit</strong>. This is common in 92% high-efficiency furnaces due to condensate management issues.</p>
+
+            <div class="alert alert-info">
+                <strong>92% Efficiency Factor:</strong> High-efficiency furnaces produce significant condensate. If drainage is impaired, water backs up into the inducer housing, disrupting the vacuum signal.
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>The "92% Efficiency" Solution Path</h2>
+
+            <h3>Fix 1: The Paperclip Fix</h3>
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>Clear the Vacuum Port</h4>
+                    <p>Locate the small plastic "nipple" on the inducer motor housing where the pressure switch hose connects. Use a straightened paperclip to clear any mineral crust or debris blocking the port.</p>
+                </div>
+            </div>
+
+            <h3>Fix 2: The Slosh Test</h3>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>Check for Water in Inducer</h4>
+                    <p>Gently rock the inducer motor housing side to side. If you hear sloshing, water has backed up into the housing. This must be drained and the cause addressed.</p>
+                </div>
+            </div>
+
+            <h3>Fix 3: Flush the Condensate Trap</h3>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4>Clean the Trap</h4>
+                    <p>Remove the white plastic condensate trap. Flush thoroughly with warm water and white vinegar to dissolve biological growth and mineral deposits.</p>
+                </div>
+            </div>
+
+            <h3>Fix 4: Prime the Trap</h3>
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h4>Prevent Air-Lock</h4>
+                    <p>Pour approximately 1 cup of water down the vertical vent pipe (with cap removed) to prime the trap. An unprimed trap allows exhaust gases to escape through the drain line.</p>
+                </div>
+            </div>
+
+            <h3>Fix 5: The Slope Check</h3>
+            <div class="step">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <h4>Verify Pitch</h4>
+                    <p>Use a torpedo level on the heat exchanger vestibule panel. Ensure a minimum <strong>&frac14;" per foot slope toward the drain side</strong> to prevent water from pooling.</p>
+                </div>
+            </div>
+
+            <h3>Fix 6: Inspect PVC Exhaust Runs</h3>
+            <div class="step">
+                <div class="step-number">6</div>
+                <div class="step-content">
+                    <h4>Check for Bellies</h4>
+                    <p>Inspect horizontal PVC exhaust runs for sags or "bellies" that could trap water and increase back-pressure on the system.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Inducer Motor Verification</h2>
+            <p>If drainage is clear but the problem persists, the inducer motor itself may be failing:</p>
+
+            <div class="step">
+                <div class="step-number">A</div>
+                <div class="step-content">
+                    <h4>Listen for Bearing Noise</h4>
+                    <p>A failing inducer will often make grinding, squealing, or rattling sounds. Worn bearings reduce motor speed and vacuum generation.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">B</div>
+                <div class="step-content">
+                    <h4>Check Motor Capacitor</h4>
+                    <p>A weak capacitor prevents the motor from reaching full speed. Test capacitance with a multimeter if available.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">C</div>
+                <div class="step-content">
+                    <h4>Verify Motor Voltage</h4>
+                    <p>Measure voltage at the inducer motor terminals during operation. Should be 115-120VAC. Low voltage indicates a wiring or board issue.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Pressure Switch Testing</h2>
+            <p>If the inducer is working properly but the switch won't close:</p>
+
+            <div class="result-box fail">
+                <strong>Manual Actuation Test:</strong><br>
+                With inducer running, carefully disconnect the hose from the pressure switch and briefly apply gentle suction (or use a manometer to verify vacuum level). If the switch doesn't close with adequate vacuum, replace the switch.
+            </div>
+
+            <div class="alert alert-warning">
+                <strong>Pressure Switch Specs:</strong> The switch requires approximately 0.4-0.7" WC of vacuum to close. Insufficient inducer speed or air leaks will prevent closure.
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Common Root Causes</h2>
+            <table class="flash-table">
+                <thead>
+                    <tr>
+                        <th>Cause</th>
+                        <th>Solution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Clogged condensate trap</td>
+                        <td>Flush with vinegar solution</td>
+                    </tr>
+                    <tr>
+                        <td>Blocked vacuum port</td>
+                        <td>Clear with paperclip</td>
+                    </tr>
+                    <tr>
+                        <td>Water in inducer housing</td>
+                        <td>Drain and correct pitch</td>
+                    </tr>
+                    <tr>
+                        <td>Cracked/disconnected hose</td>
+                        <td>Replace pressure hose</td>
+                    </tr>
+                    <tr>
+                        <td>Failing inducer motor</td>
+                        <td>Replace inducer assembly</td>
+                    </tr>
+                    <tr>
+                        <td>Defective pressure switch</td>
+                        <td>Replace switch (0130F00641)</td>
+                    </tr>
+                    <tr>
+                        <td>Blocked exhaust/intake</td>
+                        <td>Clear vent terminations</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="card">
+            <h2>Parts Required</h2>
+            <table class="parts-table">
+                <thead>
+                    <tr>
+                        <th>Part</th>
+                        <th>Part Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ID Blower Pressure Switch</td>
+                        <td><span class="part-number">0130F00641</span></td>
+                    </tr>
+                    <tr>
+                        <td>Condensate Trap</td>
+                        <td><span class="part-number">(model specific)</span></td>
+                    </tr>
+                    <tr>
+                        <td>Inducer Motor Assembly</td>
+                        <td><span class="part-number">(model specific)</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <a href="index.html" class="back-link">&larr; Back to Diagnostic Home</a>
+    </main>
+
+    <footer>
+        <p>Goodman GMSS92 Field Service Guide</p>
+    </footer>
+</body>
+</html>

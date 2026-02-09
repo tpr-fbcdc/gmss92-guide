@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4-Flash: Open High Limit - Goodman GMSS92</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Code 4: Open High Limit</h1>
+        <p>Overheating Protection Diagnosis</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="code-1.html">1-Flash</a></li>
+            <li><a href="code-2.html">2-Flash</a></li>
+            <li><a href="code-3.html">3-Flash</a></li>
+            <li><a href="code-4.html" class="active">4-Flash</a></li>
+            <li><a href="maintenance.html">Maintenance</a></li>
+            <li><a href="parts.html">Parts</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="card">
+            <h2>Technical Summary</h2>
+            <p>The 4-Flash code indicates the <strong>high limit switch has opened due to excessive heat exchanger temperature</strong>. This is a critical safety feature that prevents heat exchanger damage and potential fire hazards.</p>
+
+            <div class="alert alert-danger">
+                <strong>Safety Warning:</strong> Repeated high limit trips can crack the heat exchanger. Address the root cause immediately&mdash;do not bypass or jumper the high limit switch.
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Symptoms</h2>
+            <ul>
+                <li>Furnace shuts down mid-cycle</li>
+                <li>Blower continues running to cool the heat exchanger</li>
+                <li>Furnace restarts after cooling, then trips again</li>
+                <li>Warm air from supply registers smells "hot" or slightly burnt</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2>Primary Cause: Airflow Restriction</h2>
+            <p>The #1 cause of high limit trips is <strong>insufficient airflow</strong> across the heat exchanger. Heat builds up faster than it can be removed.</p>
+
+            <h3>Immediate Checks</h3>
+
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>Replace the Air Filter</h4>
+                    <p>Install a fresh <strong>16&times;25&times;1</strong> filter. A clogged filter is the most common cause. Check filter monthly during heating season.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>Open All Supply Registers</h4>
+                    <p>Ensure all supply vents throughout the home are fully open. Closing too many registers restricts airflow back to the furnace.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4>Clear Return Air Path</h4>
+                    <p>Make sure return air grilles are not blocked by furniture, rugs, or other obstructions. The return needs clear airflow.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h4>Check Ductwork</h4>
+                    <p>Inspect visible ductwork for collapsed sections, disconnections, or excessive restrictions.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Secondary Causes</h2>
+
+            <h3>Blower Motor Issues</h3>
+            <div class="result-box fail">
+                <strong>Blower Not Running or Running Slow:</strong><br>
+                If the blower motor is failing, it won't move enough air. Listen for humming without spinning, or weak airflow at registers.<br>
+                <em>Check: Blower capacitor, motor bearings, control board blower relay</em>
+            </div>
+
+            <h3>Dirty Blower Wheel</h3>
+            <div class="result-box fail">
+                <strong>Dust-Caked Blower:</strong><br>
+                A blower wheel coated with dust moves significantly less air. Common in homes with pets or after construction.<br>
+                <em>Fix: Remove blower assembly and clean wheel with brush and vacuum</em>
+            </div>
+
+            <h3>Undersized Ductwork</h3>
+            <div class="result-box fail">
+                <strong>System Design Issue:</strong><br>
+                If the furnace was replaced but ductwork wasn't upgraded, the ducts may be undersized for the BTU output.<br>
+                <em>Fix: Duct modification or adding return air capacity</em>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>High Limit Switch Testing</h2>
+            <p>If airflow is confirmed adequate, test the high limit switch itself:</p>
+
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>Locate the High Limit</h4>
+                    <p>The high limit switch is mounted on the heat exchanger or plenum. It has two wires and a reset button (on some models).</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>Continuity Test (Power OFF)</h4>
+                    <p>With the furnace cool and power off, disconnect wires and test continuity across the switch. Should read 0&Omega; (closed) when cool.</p>
+                </div>
+            </div>
+
+            <div class="result-box fail">
+                <strong>No Continuity When Cool:</strong><br>
+                The switch has failed open permanently.<br>
+                <em>Replace high limit switch</em>
+            </div>
+
+            <div class="result-box pass">
+                <strong>Continuity When Cool:</strong><br>
+                Switch is functioning. The problem is genuine overheating&mdash;focus on airflow diagnosis.
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Gas Valve / Overfiring Check</h2>
+            <div class="alert alert-warning">
+                <strong>Advanced Diagnosis:</strong> If airflow is adequate and the limit still trips, the furnace may be overfiring (too much gas). Check manifold pressure&mdash;should be 3.2-3.8" WC for natural gas. Higher pressure means more BTUs than the system can dissipate.
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Diagnostic Summary</h2>
+            <table class="flash-table">
+                <thead>
+                    <tr>
+                        <th>Cause</th>
+                        <th>Solution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Dirty air filter</td>
+                        <td>Replace with 16&times;25&times;1</td>
+                    </tr>
+                    <tr>
+                        <td>Closed supply registers</td>
+                        <td>Open all registers</td>
+                    </tr>
+                    <tr>
+                        <td>Blocked return air</td>
+                        <td>Clear obstructions</td>
+                    </tr>
+                    <tr>
+                        <td>Dirty blower wheel</td>
+                        <td>Clean blower assembly</td>
+                    </tr>
+                    <tr>
+                        <td>Failing blower motor</td>
+                        <td>Replace motor or capacitor</td>
+                    </tr>
+                    <tr>
+                        <td>Defective high limit</td>
+                        <td>Replace switch</td>
+                    </tr>
+                    <tr>
+                        <td>Overfiring</td>
+                        <td>Adjust gas valve pressure</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="card">
+            <h2>Parts Required</h2>
+            <table class="parts-table">
+                <thead>
+                    <tr>
+                        <th>Part</th>
+                        <th>Part Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Air Filter</td>
+                        <td><span class="part-number">16&times;25&times;1</span></td>
+                    </tr>
+                    <tr>
+                        <td>High Limit Switch</td>
+                        <td><span class="part-number">(model specific)</span></td>
+                    </tr>
+                    <tr>
+                        <td>Blower Motor</td>
+                        <td><span class="part-number">(model specific)</span></td>
+                    </tr>
+                    <tr>
+                        <td>Blower Capacitor</td>
+                        <td><span class="part-number">(check rating on existing)</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <a href="index.html" class="back-link">&larr; Back to Diagnostic Home</a>
+    </main>
+
+    <footer>
+        <p>Goodman GMSS92 Field Service Guide</p>
+    </footer>
+</body>
+</html>
