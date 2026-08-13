@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+
+# Camera originals: large, and iPhone PNGs carry GPS EXIF.
+# This repo is PUBLIC — strip metadata before committing any photo:
+#   exiftool -all= -overwrite_original <file>
+# then verify with: exiftool -a -G1 -GPS:all -XMP:all <file>   (must print nothing)
+IMG_*.png
+IMG_*.PNG
+IMG_*.jpg
+IMG_*.JPG
